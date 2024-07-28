@@ -29,9 +29,9 @@ const ChatPage = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl flex flex-col">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-300">
+        <div className="flex items-center justify-between p-4 border-b border-gray-300 mb-4">
           <div className="flex items-center">
             <div className="h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">A</div>
             <div className="ml-3">
@@ -66,7 +66,7 @@ const ChatPage = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendClick()}
-            placeholder="Type a message..."
+            placeholder="Hey Bot, How are you today?"
           />
           <button
             className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-600"
