@@ -2,6 +2,8 @@
 
 #️⃣ An innovative Chatbot designed to fetch and resolve user queries from Headstarter AI Discord 🎞️ channel. Our chatbot🤖provides a seamless and efficient way to access valuable information and support directly from Discord, making it easier for users to stay informed and get the help they need.
 
+![ai assistant](https://github.com/user-attachments/assets/fb466c54-5313-4840-9a19-415c42b6350d)
+
 
 #️⃣ Tech Stack - 
 
