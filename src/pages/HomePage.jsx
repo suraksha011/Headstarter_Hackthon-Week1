@@ -14,7 +14,7 @@ const HomePage = () => {
       </p>
       <img src="/bot.jpg" alt="bot" className="w-[500px]" />
       <NavLink to="/chatpage">
-        Continue
+        Continue here
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -24,6 +24,7 @@ const HomePage = () => {
         >
           <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
         </svg>
+        hello shubham
       </NavLink>
     </div>
   );
