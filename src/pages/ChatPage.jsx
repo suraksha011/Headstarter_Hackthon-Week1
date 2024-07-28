@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { SearchIcon, BellIcon } from '@heroicons/react/outline';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([
@@ -11,20 +11,10 @@ const ChatPage = () => {
     "What are my tasks for this week?",
     "Any deadlines this week?",
     "When is my meeting on Tuesday?",
-    "Do I have any meetings today?",
-    "Can you summarize today's news?",
-    "Tell me a fun fact."
+    "Any deadlines this week?",
+    "Any deadlines this week?",
+    "Any deadlines this week?",
   ];
-
-  const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
 
   const sendMessage = (message) => {
     if (message.trim() !== '') {
@@ -46,8 +36,8 @@ const ChatPage = () => {
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <SearchIcon className="h-6 w-6 text-gray-600" />
-            <BellIcon className="h-6 w-6 text-gray-600" />
+            <div className="h-6 w-6 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">&#x1F50D;</div>
+            <div className="h-6 w-6 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">&#x1F514;</div>
           </div>
         </div>
 
@@ -56,17 +46,15 @@ const ChatPage = () => {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`p-3 my-2 rounded-lg max-w-xs ${
-                message.sender === 'user'
-                  ? 'bg-blue-500 text-white self-end'
-                  : 'bg-gray-200 text-gray-800'
-              }`}
+              className={`p-3 my-2 rounded-lg max-w-xs ${message.sender === 'user'
+                ? 'bg-blue-500 text-white self-end'
+                : 'bg-gray-200 text-gray-800'
+                }`}
               style={{ alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start' }}
             >
               {message.text}
             </div>
           ))}
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Suggested Responses */}
@@ -90,24 +78,24 @@ const ChatPage = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && sendMessage(input)}
-            placeholder="Type a message..."
-            aria-label="Type a message"
+            placeholder="Hey Bot, How are you today?"
           />
-          <button
-            className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-600"
-            onClick={() => sendMessage(input)}
-            aria-label="Send message"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          <NavLink to="/finalpage">
+            <button
+              className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-600"
+              onClick={() => sendMessage(input)}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>
