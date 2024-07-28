@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+root {
+  --fontStyle: cursive;
+}
+
+body {
+  font-family: var(--fontStyle);
+  margin: 0;
+  padding: 0;
+}
