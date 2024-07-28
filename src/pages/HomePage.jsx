@@ -23,7 +23,7 @@ const HomePage = () => {
         <img
           src="/bot.png"
           alt="bot"
-          className="max-sm:w-[160px] max-lg:max-w-[250px] w-[300px] animate-bounce max-md:-mb-16"
+          className="max-sm:w-[160px] max-lg:max-w-[250px] w-[300px] animate-bounce max-md:mb-28 max-sm:-mb-10 "
         />
       </div>
       <NavLink to="/chatpage">
