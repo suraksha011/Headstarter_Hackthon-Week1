@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ChatPage = () => {
-  const [messages, setMessages] = useState([
-    { text: "Hey Bot, How are you today?", sender: 'user' }
-  ]);
   const [input, setInput] = useState('');
+  const navigate = useNavigate();
 
   const suggestedResponses = [
     "What are my tasks for this week?",
@@ -18,13 +16,13 @@ const ChatPage = () => {
 
   const sendMessage = (message) => {
     if (message.trim() !== '') {
-      setMessages([...messages, { text: message, sender: 'user' }]);
+      navigate('/finalpage', { state: { message } });
       setInput('');
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800">
+    <div className="flex justify-center items-center min-h-screen bg-gray-800 overflow-hidden">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-300">
@@ -43,18 +41,7 @@ const ChatPage = () => {
 
         {/* Messages Display Area */}
         <div className="flex-1 overflow-y-auto my-4 p-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`p-3 my-2 rounded-lg max-w-xs ${message.sender === 'user'
-                ? 'bg-blue-500 text-white self-end'
-                : 'bg-gray-200 text-gray-800'
-                }`}
-              style={{ alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start' }}
-            >
-              {message.text}
-            </div>
-          ))}
+          {/* Static messages if needed */}
         </div>
 
         {/* Suggested Responses */}
@@ -80,22 +67,20 @@ const ChatPage = () => {
             onKeyPress={(e) => e.key === 'Enter' && sendMessage(input)}
             placeholder="Hey Bot, How are you today?"
           />
-          <NavLink to="/finalpage">
-            <button
-              className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-600"
-              onClick={() => sendMessage(input)}
+          <button
+            className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-600"
+            onClick={() => sendMessage(input)}
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
-          </NavLink>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
