@@ -14,7 +14,7 @@ const HomePage = () => {
       </p>
       <img src="/bot.jpg" alt="bot" className="w-[500px]" />
       <NavLink to="/chatpage">
-        Continue
+        Continue here
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
