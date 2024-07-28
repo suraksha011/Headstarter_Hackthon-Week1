@@ -1,12 +1,14 @@
-import "./App.css";
+import { HomePage, ChatPage } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <h1 className="text-2xl text-red-100 bg-red-400 p-4">
-        Headstarter Hackathon Week - 1
-      </h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/chatpage" element={<ChatPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
